@@ -1,0 +1,17 @@
+version 1.0
+@totalColumns 15
+vatref:
+rowkey:
+ubrn:
+sic:
+turnover:
+record_type:
+legalstatus:
+nameline1:
+tradstyle:
+address1:
+address2:
+address3:
+address4:
+address5:
+postcode:
