@@ -1,4 +1,5 @@
 import Dependencies._
+import DependencyOverrides.gfcSemver
 
 lazy val root = (project in file(".")).
   configs(IntegrationTest).             // adds predefined integration test configuration (it)
@@ -25,13 +26,14 @@ lazy val root = (project in file(".")).
   ),
     Defaults.itSettings,
     fork in IntegrationTest := true,
-    resolvers += Resolver.bintrayRepo("giltgroupe", "maven"),
   libraryDependencies ++= Seq(
     compilerPlugin(silencerPlugin),
     silencerLib % Provided,
     csvValidator,
-    gfcSemver,
-
     scalaTest % s"$Test,$IntegrationTest"
+  ),
+  dependencyOverrides ++= Seq(
+    // Favour the  // Favour the jetty components available in Maven Central components available in Maven Central
+    gfcSemver
   )
 )
